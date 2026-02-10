@@ -22,3 +22,9 @@
   display: flex;
   margin-bottom: 60px;
 }
+
+.loading-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}

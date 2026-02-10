@@ -1,4 +1,4 @@
-import userImage from "../assets/chatbot.png";
+import userImage from "../assets/harshit.jpeg";
 import robotImage from "../assets/robot.png";
 import "./ChatMessage.css";
 
@@ -27,7 +27,7 @@ export function ChatMessage({ message, sender }) {
       )}
       <div className="chat-message-text">{message}</div>
       {sender === "user" && (
-        <img src={userImage} className="chat-message-profile" />
+        <img src={userImage} className="chat-message-profile2" />
       )}
     </div>
   );
