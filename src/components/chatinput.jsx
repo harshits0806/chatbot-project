@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dayjs from "dayjs";
 import { Chatbot } from "supersimpledev";
 import loadingImage from "../assets/Loading_icon.gif";
 import "./ChatInput.css";
@@ -29,6 +30,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         message: inputText,
         sender: "user",
         id: crypto.randomUUID(),
+        time: dayjs().valueOf(),
       },
     ];
 
@@ -52,6 +54,7 @@ export function ChatInput({ chatMessages, setChatMessages }) {
         message: response,
         sender: "robot",
         id: crypto.randomUUID(),
+        time: dayjs().valueOf(),
       },
     ]);
     setIsLoading(false);
@@ -63,6 +66,10 @@ export function ChatInput({ chatMessages, setChatMessages }) {
     } else if (event.key === "Escape") {
       setInputText("");
     }
+  }
+
+  function clear() {
+    setInputText("");
   }
 
   return (
@@ -77,6 +84,9 @@ export function ChatInput({ chatMessages, setChatMessages }) {
       />
       <button className="send-button" onClick={sendMessage}>
         Send
+      </button>
+      <button className="reset-button" onClick={clear}>
+        Clear
       </button>
     </div>
   );
